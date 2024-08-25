@@ -101,4 +101,4 @@ const initialMessages = [
   }
 ]
 
-module.exports = { initialMessages }
+module.exports = initialMessages
