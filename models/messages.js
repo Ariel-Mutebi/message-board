@@ -18,7 +18,9 @@ function addMessage(message) {
 }
 
 function removeMessage(idOfDeletedMessage) {
-  messages = messages.filter(message => message.id !== idOfDeletedMessage)
+  const undeletedMessages = messages.filter(message => message.id !== idOfDeletedMessage)
+  if((messages.length - undeletedMessages.length) > 1) console.warn("duplicate message ids detected")
+  messages = undeletedMessages
 }
 
 initialMessages.forEach(addMessage)

@@ -1,6 +1,6 @@
 const path = require("node:path")
 const express = require("express")
-const { getMessages } = require("./models/messages")
+const { getMessages, addMessage } = require("./models/messages")
 
 const app = express()
 const PORT = 8080
@@ -9,9 +9,24 @@ const PORT = 8080
 app.set("views", path.join(__dirname, "views"))
 app.set("view engine", "ejs")
 
-// routes
+// middlewares
 app.use(express.static("public"))
+app.use(express.urlencoded({ extended: true }));
+
+// routes
 app.get("/", (_, res) => res.render("index", { messages: getMessages() }))
+app.get("/new", (_, res) => res.render("newMessagePage"))
+app.post("/new", (req, res) => {
+  addMessage(
+    {
+      text: req.body.text,
+      user: req.body.user,
+      added: new Date()
+    }
+  )
+
+  res.redirect("/")
+})
 
 // run
 app.listen(PORT, () => {
