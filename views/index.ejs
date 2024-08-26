@@ -8,15 +8,16 @@
   </head>
   <body>
     <ul>
-      <% messages.map((message) => { %>
+      <% const orderedMessages = messages.sort((a, b) => new Date(a.added) - new
+      Date(b.added)); %> <% orderedMessages.map((message) => { %>
       <li>
         <p><%= message.user %></p>
         <p><%= message.text %></p>
         <p><%= message.added %></p>
-        <a href="/<%= message.id %>">details</a>
+        <a href="/<%= message.id %>">Details</a>
       </li>
       <% }) %>
     </ul>
-    <a href="/new">Send a message</a>
+    <a href="/new">Create virtue</a>
   </body>
 </html>

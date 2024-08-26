@@ -1,6 +1,6 @@
 const path = require("node:path")
 const express = require("express")
-const { getMessages, addMessage } = require("./models/messages")
+const { getMessages, addMessage, getMessage } = require("./models/messages")
 
 const app = express()
 const PORT = 8080
@@ -15,17 +15,23 @@ app.use(express.urlencoded({ extended: true }));
 
 // routes
 app.get("/", (_, res) => res.render("index", { messages: getMessages() }))
-app.get("/new", (_, res) => res.render("newMessagePage"))
+app.get("/new", (_, res) => res.render("newMessage"))
 app.post("/new", (req, res) => {
-  addMessage(
-    {
-      text: req.body.text,
-      user: req.body.user,
-      added: new Date()
-    }
-  )
+  addMessage({
+    text: req.body.text,
+    user: req.body.user,
+    added: new Date()
+  })
 
   res.redirect("/")
+})
+app.get("/:messageId", (req, res) => {
+  const message = getMessage(req.params.messageId)
+  if (message) {
+    res.render("singleMessage", { message: message })
+  } else {
+    res.render("404")
+  }
 })
 
 // run
