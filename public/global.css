@@ -39,7 +39,7 @@ a.default-svg-containing-link svg {
   fill: var(--unvisited-link-blue);
 }
 
-a.default-svg-containing-link:active svg {
+a.default-svg-containing-link:active, a.default-svg-containing-link:visited:active svg {
   fill: red;
 }
 
