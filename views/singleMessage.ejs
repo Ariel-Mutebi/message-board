@@ -4,13 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="vaultIcon.png" type="image/x-icon" />
-    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="singleMessage.css" />
     <title>VirtueVault | Virtue</title>
   </head>
   <body>
-    <p>Virtue: <%=message.text %></p>
-    <p>Virtue-Utterer: <%=message.user %></p>
-    <p>Virtue's date of utterance: <%=message.added %></p>
-    <a href="/">Return to Vault</a>
+    <div class="info-wrapper">
+      <main>
+        <h2 class="info-header">Virtue:</h2>
+        <blockquote class="info-content virtue"><%=message.text %></blockquote>
+        <h2 class="info-header">Said by:</h2>
+        <cite class="info-content sayer"><%=message.user %></cite>
+        <h2 class="info-header">On the:</h2>
+        <time class="info-content" datetime="<%=message.added %>"
+          ><%= dateFormatter(new Date(message.added), "do MMMM yyyy") %></time
+        >
+      </main>
+      <a href="/" class="default-svg-containing-link">
+        Return to Vault
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+          <path
+            d="M360-240 120-480l240-240 56 56-144 144h488v-160h80v240H272l144 144-56 56Z"
+          />
+        </svg>
+      </a>
+    </div>
   </body>
 </html>

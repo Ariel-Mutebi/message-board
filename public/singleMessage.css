@@ -1,0 +1,29 @@
+@import url("global.css");
+
+.info-wrapper {
+  padding: 2rem;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.info-header {
+  color: var(--velvet-blue-grey);
+}
+
+.info-content {
+  display: block;
+  margin-left: 2rem;
+  padding-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.info-content.virtue {
+  color: var(--beige);
+  font-size: 2em;
+  border-left: 2px solid var(--sea-green);
+}
+
+a.default-svg-containing-link svg {
+  height: 1.75rem;
+  width: 1.75rem;
+}

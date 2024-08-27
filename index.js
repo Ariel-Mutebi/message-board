@@ -29,7 +29,7 @@ app.post("/new", (req, res) => {
 app.get("/:messageId", (req, res) => {
   const message = getMessage(req.params.messageId)
   if (message) {
-    res.render("singleMessage", { message: message })
+    res.render("singleMessage", { message: message, dateFormatter: dateFNS.format })
   } else {
     res.render("404")
   }
