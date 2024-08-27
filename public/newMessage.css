@@ -1,0 +1,34 @@
+@import url("global.css");
+
+.center-div {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+}
+
+form {
+  display: grid;
+  width: 80svh;
+  padding: 0.5rem 0;
+  margin-bottom: 0.5rem;
+  gap: 0.5rem;
+}
+
+label, button {
+  font-size: 1.25rem;
+}
+
+input, textarea {
+  background-color: var(--beige);
+}
+
+button {
+  background-color: var(--sage);
+}
+
+.new-heading {
+  font-size: 2rem;
+  text-shadow: 0.1rem 0.1rem var(--sea-green-dark);
+  font-weight: 700; 
+}

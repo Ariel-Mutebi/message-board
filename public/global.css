@@ -5,7 +5,7 @@
 
 body {
   font-family: "NotoSerif", "Times New Roman", serif;
-  background: var(--sea-green);
+  background: var(--sea-green-light);
   box-sizing: border-box;
 }
 
@@ -21,8 +21,28 @@ body, h1, h2, h3, h4, h5, h6, p, ul, li {
   --velvet-blue-grey: rgb(49, 54, 63);
   --sea-green-dark: rgb(65, 102, 87);
   --sea-green: rgb(83, 128, 109);
+  --sea-green-light: rgb(105, 158, 136);
   --sage: rgb(170, 174, 127);
   --beige: rgb(208, 214, 179);
   --unvisited-link-blue: rgb(0, 0, 238);
   --visited-link-purple: rgb(97, 46, 141);
+}
+
+a.default-svg-containing-link {
+  display: inline-flex;
+  align-items: flex-end;
+}
+
+a.default-svg-containing-link svg {
+  height: 1.25rem;
+  width: 1.25rem;
+  fill: var(--unvisited-link-blue);
+}
+
+a.default-svg-containing-link:active svg {
+  fill: red;
+}
+
+a.default-svg-containing-link:visited svg {
+  fill: var(--visited-link-purple);
 }

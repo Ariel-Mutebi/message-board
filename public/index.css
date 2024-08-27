@@ -1,3 +1,5 @@
+@import url("global.css");
+
 .site-heading {
   font-size: 3rem;
   font-weight: 900;
@@ -43,25 +45,6 @@ ul.virtue-list {
 
 .virtue-date {
   color: var(--velvet-blue-grey);
-}
-
-a.default-svg-containing-link {
-  display: inline-flex;
-  align-items: flex-end;
-}
-
-a.default-svg-containing-link svg {
-  height: 1.25rem;
-  width: 1.25rem;
-  fill: var(--unvisited-link-blue);
-}
-
-a.default-svg-containing-link:active svg {
-  fill: red;
-}
-
-a.default-svg-containing-link:visited svg {
-  fill: var(--visited-link-purple);
 }
 
 .creation-link {
