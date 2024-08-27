@@ -1,5 +1,6 @@
 const path = require("node:path")
 const express = require("express")
+const dateFNS = require("date-fns")
 const { getMessages, addMessage, getMessage } = require("./models/messages")
 
 const app = express()
@@ -14,7 +15,7 @@ app.use(express.static("public"))
 app.use(express.urlencoded({ extended: true }));
 
 // routes
-app.get("/", (_, res) => res.render("index", { messages: getMessages() }))
+app.get("/", (_, res) => res.render("index", { messages: getMessages(), dateFormatter: dateFNS.format }))
 app.get("/new", (_, res) => res.render("newMessage"))
 app.post("/new", (req, res) => {
   addMessage({

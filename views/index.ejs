@@ -5,19 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="vaultIcon.png" type="image/x-icon" />
     <title>VirtueVault</title>
+    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="index.css" />
   </head>
+
   <body>
-    <ul>
-      <% const orderedMessages = messages.sort((a, b) => new Date(a.added) - new
-      Date(b.added)); %> <% orderedMessages.map((message) => { %>
-      <li>
-        <p><%= message.user %></p>
-        <p><%= message.text %></p>
-        <p><%= message.added %></p>
-        <a href="/<%= message.id %>">Details</a>
-      </li>
-      <% }) %>
-    </ul>
-    <a href="/new">Create virtue</a>
+    <header>
+      <h1 class="site-heading">The VirtueVault Forum</h1>
+    </header>
+
+    <main>
+      <ul class="virtue-list">
+        <% const orderedMessages = messages.sort((a, b) => new Date(a.added) -
+        new Date(b.added)); %> <% orderedMessages.map((message) => { %>
+        <li class="virtue-wrapper">
+          <hgroup class="speaker-date-wrapper">
+            <h2 class="virtue-speaker"><%= message.user %></h2>
+            <time class="virtue-date" datetime="<%=message.added %>">
+              <%= dateFormatter(new Date(message.added), "EEEE do MMMM, yyyy")
+              %>
+            </time>
+          </hgroup>
+
+          <p>
+            <%= message.text %>
+            <a href="/<%= message.id %>" class="default-svg-containing-link">
+              Open
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+                <path
+                  d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
+                />
+              </svg>
+            </a>
+          </p>
+        </li>
+        <% }) %>
+      </ul>
+
+      <div class="creation-link">
+        <a href="/new" class="default-svg-containing-link">
+          Create virtue
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+            <path
+              d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h357l-80 80H200v560h560v-278l80-80v358q0 33-23.5 56.5T760-120H200Zm280-360ZM360-360v-170l367-367q12-12 27-18t30-6q16 0 30.5 6t26.5 18l56 57q11 12 17 26.5t6 29.5q0 15-5.5 29.5T897-728L530-360H360Zm481-424-56-56 56 56ZM440-440h56l232-232-28-28-29-28-231 231v57Zm260-260-29-28 29 28 28 28-28-28Z"
+            />
+          </svg>
+        </a>
+      </div>
+    </main>
   </body>
 </html>
