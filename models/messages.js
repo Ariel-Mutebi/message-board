@@ -17,12 +17,6 @@ function addMessage(message) {
   return message
 }
 
-function removeMessage(idOfDeletedMessage) {
-  const undeletedMessages = messages.filter(message => message.id !== idOfDeletedMessage)
-  if((messages.length - undeletedMessages.length) > 1) console.warn("duplicate message ids detected")
-  messages = undeletedMessages
-}
-
 initialMessages.forEach(addMessage)
 
-module.exports = { getMessages, getMessage, addMessage, removeMessage }
+module.exports = { getMessages, getMessage, addMessage }

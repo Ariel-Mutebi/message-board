@@ -1,7 +1,7 @@
-const { getMessages, getMessage, addMessage, removeMessage } = require("./messages")
+const { getMessages, getMessage, addMessage } = require("./messages")
 const initialMessages = require("../constants/initialMessages")
 
-describe("set-up, basic read", () => {
+describe("create database, read whole database", () => {
   test("The messages database is populated with initialMessages, and getMessages shows that.", () => {
     const messagesDB = getMessages()
 
@@ -17,7 +17,7 @@ describe("set-up, basic read", () => {
   })
 })
 
-describe("CRUD", () => {
+describe("create message, read message", () => {
   const text = "Hello, world!"
   const user = "Jest"
   const date = new Date()
@@ -32,10 +32,5 @@ describe("CRUD", () => {
 
   test("addMessage adds message object to database, and getMessage returns message of a given id.", () => {
     expect(getMessage(message.id)).toStrictEqual(message)
-  })
-
-  test("removeMessage removes message object from database", () => {
-    removeMessage(message.id)
-    expect(getMessage(message.id)).toBeFalsy()
   })
 })
