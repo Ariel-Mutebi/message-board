@@ -7,8 +7,10 @@ const node_path_1 = __importDefault(require("node:path"));
 const express_1 = __importDefault(require("express"));
 const date_fns_1 = require("date-fns");
 const messages_1 = require("./models/messages");
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
 const app = (0, express_1.default)();
-const PORT = 8080;
+const PORT = process.env.PORT;
 // set up view engine
 app.set("views", node_path_1.default.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -37,5 +39,6 @@ app.get("/:messageId", (req, res) => {
 });
 // run
 app.listen(PORT, () => {
-    console.log("running on http://localhost:" + String(PORT));
+    if (process.env.NODE_ENV = "DEV")
+        console.log("running on http://localhost:" + String(PORT));
 });

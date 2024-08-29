@@ -2,9 +2,12 @@ import path from "node:path"
 import express from "express"
 import { format } from "date-fns"
 import { getMessages, addMessage, getMessage, uuidV1 } from "./models/messages"
+import dotenv from "dotenv"
+
+dotenv.config()
 
 const app = express()
-const PORT = 8080
+const PORT = process.env.PORT
 
 // set up view engine
 app.set("views", path.join(__dirname, "views"))
@@ -37,5 +40,5 @@ app.get("/:messageId", (req, res) => {
 
 // run
 app.listen(PORT, () => {
-  console.log("running on http://localhost:" + String(PORT))
+  if(process.env.NODE_ENV = "DEV") console.log("running on http://localhost:" + String(PORT))
 })
