@@ -45,6 +45,7 @@ ul.virtue-list {
 
 .virtue-date {
   color: var(--velvet-blue-grey);
+  text-align: right;
 }
 
 .creation-link {

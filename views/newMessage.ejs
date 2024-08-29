@@ -9,30 +9,28 @@
   </head>
   <body>
     <div class="center-div">
-      <div>
+      <form action="/new" method="post">
         <h1 class="new-heading">Write a virtuous message</h1>
-        <form action="/new" method="post">
-          <label for="user-input">Username:</label>
-          <input type="text" name="user" id="user-input" required />
-          <label for="text-input">Message:</label>
-          <textarea
-            name="text"
-            id="text-input"
-            cols="30"
-            rows="10"
-            required
-          ></textarea>
-          <button type="submit">Store Virtue</button>
-        </form>
-        <a href="/" class="default-svg-containing-link">
-          Cancel and return to Vault
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
-            <path
-              d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"
-            />
-          </svg>
-        </a>
-      </div>
+        <label for="user-input">Username:</label>
+        <input type="text" name="user" id="user-input" required />
+        <label for="text-input">Message:</label>
+        <textarea
+          name="text"
+          id="text-input"
+          cols="30"
+          rows="10"
+          required
+        ></textarea>
+        <button type="submit">Store Virtue</button>
+      </form>
+      <a href="/" class="default-svg-containing-link">
+        Cancel and return to Vault
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
+          <path
+            d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"
+          />
+        </svg>
+      </a>
     </div>
   </body>
 </html>

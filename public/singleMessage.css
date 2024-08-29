@@ -2,7 +2,6 @@
 
 .info-wrapper {
   padding: 2rem;
-  font-size: 1.5rem;
   font-weight: 300;
 }
 
@@ -26,4 +25,10 @@
 a.default-svg-containing-link svg {
   height: 1.75rem;
   width: 1.75rem;
+}
+
+@media screen and (min-width: 480px) {
+  .info-wrapper {
+    font-size: 1.5rem;
+  }
 }
