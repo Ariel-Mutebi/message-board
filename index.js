@@ -13,7 +13,7 @@ const PORT = process.env.PORT;
 app.set("views", node_path_1.default.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express_1.default.static("public"));
-app.use(express_1.default.urlencoded({ extended: true }));
+app.use(express_1.default.urlencoded({ extended: false }));
 app.use("/", router_1.default);
 // run
 app.listen(PORT, () => console.log("app running on port: " + String(PORT)));
