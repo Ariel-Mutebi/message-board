@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "compile-test": "npx tsc && jest",
-    "compile-launch": "npx tsc && node index"
+    "compile": "npx tsc",
+    "test": "jest",
+    "start": "node ./index.js",
+    "watch": "node --watch ./index.js"
   },
   "keywords": [],
   "author": "Ariel Robert Mutebi",
