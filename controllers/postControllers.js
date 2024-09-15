@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.postMessage = void 0;
-const messages_1 = require("../models/messages");
+const query_1 = require("../model (db)/query");
 const postMessage = (req, res) => {
-    (0, messages_1.addMessage)({
-        text: String(req.body.text),
+    (0, query_1.addMessage)({
+        message: String(req.body.message),
         user: String(req.body.user),
         added: new Date(),
     });

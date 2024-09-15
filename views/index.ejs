@@ -19,7 +19,7 @@
         new Date(b.added)); %> <% orderedMessages.map((message) => { %>
         <li class="virtue-wrapper">
           <hgroup class="speaker-date-wrapper">
-            <h2 class="virtue-speaker"><%= message.user %></h2>
+            <h2 class="virtue-speaker"><%= message.username %></h2>
             <time class="virtue-date" datetime="<%=message.added %>">
               <%= dateFormatter(new Date(message.added), "EEEE do MMMM, yyyy")
               %>
@@ -27,7 +27,7 @@
           </hgroup>
 
           <p>
-            <%= message.text %>
+            <%= message.message %>
             <a href="/<%= message.id %>" class="default-svg-containing-link">
               Open
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">

@@ -11,9 +11,11 @@
     <div class="info-wrapper">
       <main>
         <h2 class="info-header">Virtue:</h2>
-        <blockquote class="info-content virtue"><%=message.text %></blockquote>
+        <blockquote class="info-content virtue">
+          <%=message.message %>
+        </blockquote>
         <h2 class="info-header">Said by:</h2>
-        <cite class="info-content sayer"><%=message.user %></cite>
+        <cite class="info-content sayer"><%=message.username %></cite>
         <h2 class="info-header">On the:</h2>
         <time class="info-content" datetime="<%=message.added %>"
           ><%= dateFormatter(new Date(message.added), "do MMMM yyyy") %></time

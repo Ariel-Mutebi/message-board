@@ -2,12 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.singleMessageOr404 = exports.newMessage = exports.index = void 0;
 const date_fns_1 = require("date-fns");
-const messages_1 = require("../models/messages");
+const query_1 = require("../model (db)/query");
 const index = (req, res) => {
-    const options = {
-        messages: (0, messages_1.getMessages)(),
-        dateFormatter: date_fns_1.format,
-    };
+    const messages = (0, query_1.getMessages)();
+    const options = { messages, dateFormatter: date_fns_1.format };
     res.render("index", options);
 };
 exports.index = index;
@@ -16,7 +14,7 @@ const newMessage = (req, res) => {
 };
 exports.newMessage = newMessage;
 const singleMessageOr404 = (req, res) => {
-    const message = (0, messages_1.getMessage)(req.params.id);
+    const message = (0, query_1.getMessage)(Number(req.params.id));
     if (message) {
         const options = { message, dateFormatter: date_fns_1.format };
         res.render("singleMessage", options);

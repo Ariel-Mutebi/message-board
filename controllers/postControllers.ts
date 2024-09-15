@@ -1,12 +1,9 @@
 import { RequestHandler } from "express"
-import { addMessage } from "../models/messages"
+import { addMessage } from "../model (db)/query"
 
 const postMessage: RequestHandler = (req, res) => {
-  addMessage({
-    text: String(req.body.text),
-    user: String(req.body.user),
-    added: new Date(),
-  })
+  const { message, username } = req.body
+  addMessage({ message, username })
   res.redirect("/")
 }
 
