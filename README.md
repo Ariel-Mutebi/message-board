@@ -26,6 +26,7 @@ I used the **EJS** template engine because of how intuitive and HTML-like it is.
 ### Controller
 
 **directories**: `/controllers`, `/middlewares` and `/routes`
+
 I used **Express JS** as my web framework.
 
 Here `controller` means a middleware that ends the request-response cycle. That's usually by doing some operation on the data model (such as reading it) and responding with a HTML file (put together by the view engine).
