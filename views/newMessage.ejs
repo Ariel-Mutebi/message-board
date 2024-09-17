@@ -11,16 +11,27 @@
     <div class="center-div">
       <form action="/new" method="post">
         <h1 class="new-heading">Write a virtuous message</h1>
+        <% if (locals.errors) { %>
+        <h2>That's not quite right...</h2>
+        <ul>
+          <% errors.forEach(error => { %>
+          <li><%= error.msg %></li>
+          <% }) %>
+        </ul>
+        <% } %>
         <label for="user-input">Username:</label>
-        <input type="text" name="username" id="user-input" required />
-        <label for="text-input">Message:</label>
-        <textarea
-          name="message"
-          id="text-input"
-          cols="30"
-          rows="10"
+        <input
+          type="text"
+          name="username"
+          id="user-input"
+          value="<% if(locals.rejectedUsername) { %> <%= rejectedUsername %> <% } %>"
           required
-        ></textarea>
+        />
+        <label for="text-input">Message:</label>
+        <textarea name="message" id="text-input" cols="30" rows="10" required>
+<% if(locals.rejectedMessage) { %>
+<%= rejectedMessage.trim() %><% } %></textarea
+        >
         <button type="submit">Store Virtue</button>
       </form>
       <a href="/" class="default-svg-containing-link">

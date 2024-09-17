@@ -2,23 +2,21 @@
 
 A dynamic website created to [these project specifications](https://www.theodinproject.com/lessons/node-path-nodejs-mini-message-board) from the Odin Project's Javascript path.
 
+Live [here](https://message-board-7ebm.onrender.com/).
+
 ## Sources of Inspiration
 
-The name **VirtueVault** was one of the many name ideas ChatGPT gave me, and it sounded quite original, so I adopted it. It evoked this idea of perfectly-preserved, timeless wisdom and moral goodness. And the question of what that would practically look like on the "World Wide Web" is what guided me when I was making design decisions.
+The name **VirtueVault** was one of the many name ideas ChatGPT gave me, and it sounded quite original, so I adopted it. It evoked this idea of perfectly-preserved, timeless wisdom. And the question of what that would practically look like on the "World Wide Web" is what guided me when I was making design decisions.
 
-In regards to the design, I wanted it to be reminiscent of an early 2000s website. This is especially evident in the minimalism, the serif font, and the shades of blue, red, and purple used for the hyperlinks. I also merged that with a pirate-y feeling (with the light sea-green background, and the chat-bubbles that look like parchment paper) because I thought it exploratory and liberatingly unmodernized.
+In regards to the design, I wanted it to be reminiscent of an early 2000s website. This is especially evident in the minimalism, the serif font, and the shades of blue, red, and purple used for the hyperlinks. Also by elements like the light sea-green background and the chat-bubbles that look like parchment paper, I tried to achieve a pirate-y, freeing, uncivilized, exploratory mood.
 
-## Technical Details: Model-View-Controller Architecture
+## Codebase organization: Model-View-Controller Architecture
 
 ### Model
 
-**directory**: `/models`
+**directory**: `/model (db)`
 
-I used an array of objects (each conforming to a TypeScript interface) as my pretend "database". However, because I only export functions from the module responsible for this, I can easily migrate to a real database (by only modifying the functions within the module, and not having to modify every place in the codebase where data storage/retrieval is needed).
-
-This shows the _Dependency Inversion_ design principle. It's a must for a maintainable codebase!
-
-I tested my functions with Jest.
+Originally, I used a JavaScript object for data storage. But because my code was SOLID (that's a pun hinting at the design principles acronym 🙂), I easily migrated to a **PostgreSQL** database with the help of the **pg** (node-postgres) library.
 
 ### View
 
@@ -27,11 +25,40 @@ I used the **EJS** template engine because of how intuitive and HTML-like it is.
 
 ### Controller
 
-**file**: `/index.ts`
-I used **Express JS** as my framework. By controller I mean any middleware which receives a request, performs operations on the model (using the aforementioned functions), delegates rendering to the view engine, and sends HTML as a response (thus ending the request-response cycle).
+**directories**: `/controllers`, `/middlewares` and `/routes`
+I used **Express JS** as my web framework.
+
+Here `controller` means a middleware that ends the request-response cycle. That's usually by doing some operation on the data model (such as reading it) and responding with a HTML file (put together by the view engine).
+
+In this code base, the controllers use high-level abstractions (following on the principle of dependency inversion). I also separated them into different files based on weather they are for `GET` or `POST` requests.
+
+In addition, `/middlewares` contains my custom middleware functions (like validators).
+
+`/routers` contains the app's router. I did not lump together the routing, middlewares, and controllers for better modularity.
+
+## Side notes for Local Development:
+
+**On Typescript:**
+
+- I like Typescript because I have a "fear of the unknown" XD.
+- If you want to play with the code, please edit the `.ts` files.
+- After an edit, run `npm run compile` (to type-check and emit JavaScript files) AND THEN `npm start` to start the app.
+- If you're using **vscode**, I suggest you paste this into your workspace settings (the `.vscode/settings.json`) to hide the redundant `.js` files:
+
+```json
+{
+  "files.exclude": {
+    "**/*.js": true
+  }
+}
+```
+
+**On Environment Variables:** In a `.env` file, specify the two:
+
+- PORT
+- DATABASE_URL
 
 ## Possible Future Upgrades
 
-- Migrating to a real database solution.
-- Implementing user account creation, user sign-in, session management, et cetera, to allow users to edit and delete messages that they wrote.
-- Use of websocket protocol to make the application real time.
+- Feature for users to edit or delete their messages. (This will likely entail extending the database schema to store user accounts, and also adding web workers for session management. Yikes.)
+- Use of websocket protocol to make the application real time. (Switching between `/` and `/new` routes is not too convenient.)
