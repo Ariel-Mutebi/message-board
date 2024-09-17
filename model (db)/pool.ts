@@ -1,3 +1,8 @@
+import dotenv from "dotenv"
 import { Pool } from "pg"
-const pool = new Pool() // singleton pattern
+
+dotenv.config()
+
+const pool = new Pool({ connectionString: process.env.DATABASE_URL })
+
 export default pool
