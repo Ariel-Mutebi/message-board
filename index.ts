@@ -2,6 +2,7 @@ import path from "node:path";
 import express from "express";
 import dotenv from "dotenv";
 import router from "./routes/router.ts";
+import process from "node:process";
 
 dotenv.config();
 

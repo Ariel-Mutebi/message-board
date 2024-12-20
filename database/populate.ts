@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import fs from "node:fs";
 import path from "node:path";
 import { Client } from "pg";
+import process from "node:process";
 
 dotenv.config();
 

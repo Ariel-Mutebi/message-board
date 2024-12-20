@@ -1,5 +1,6 @@
 import dotenv from "dotenv";
 import pg from "pg";
+import process from "node:process";
 
 dotenv.config();
 
