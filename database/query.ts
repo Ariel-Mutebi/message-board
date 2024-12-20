@@ -1,4 +1,4 @@
-import Message from "../types/MessageInterface";
+import Message from "../types/MessageInterface.ts";
 import pool from "./pool.ts";
 
 async function getMessages(): Promise<Message[]> {

@@ -1,6 +1,6 @@
 import { RequestHandler } from "express";
 import { validationResult } from "express-validator";
-import { addMessage } from "../model (db)/query.ts";
+import { addMessage } from "../database/query.ts";
 import { postMessageValidator } from "../middlewares/validators.ts";
 
 const postMessage: RequestHandler[] = [

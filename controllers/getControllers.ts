@@ -1,6 +1,6 @@
 import { RequestHandler } from "express";
 import { format as dateFormatter } from "date-fns";
-import { getMessages, getMessage } from "../model (db)/query.ts";
+import { getMessages, getMessage } from "../database/query.ts";
 
 const index: RequestHandler = async(req, res) => {
   const messages = await getMessages();

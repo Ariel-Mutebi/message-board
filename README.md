@@ -14,7 +14,7 @@ In regards to the design, I wanted it to be reminiscent of an early 2000s websit
 
 ### Model
 
-**directory**: `/model (db)`
+**directory**: `/database`
 
 Originally, I used a JavaScript object for data storage. But because my code was SOLID (that's a pun hinting at the design principles acronym 🙂), I easily migrated to a **PostgreSQL** database with the help of the **pg** (node-postgres) library.
 
