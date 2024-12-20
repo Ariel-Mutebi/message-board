@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "compile": "npx tsc",
-    "start": "node ./index.js",
-    "populate": "node './model (db)/populate.js'",
-    "deploy": "npm run populate && npm run compile && npm start"
+    "populate": "deno './model (db)/populate.ts'"
   },
   "keywords": [],
   "author": "Ariel Robert Mutebi",

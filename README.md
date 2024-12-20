@@ -39,20 +39,8 @@ In addition, `/middlewares` contains my custom middleware functions (like valida
 
 ## Side notes for Local Development:
 
-**On Typescript:**
-
-- I like Typescript because I have a "fear of the unknown" XD.
-- If you want to play with the code, please edit the `.ts` files.
-- After an edit, run `npm run compile` (to type-check and emit JavaScript files) AND THEN `npm start` to start the app.
-- If you're using **vscode**, I suggest you paste this into your workspace settings (the `.vscode/settings.json`) to hide the redundant `.js` files:
-
-```json
-{
-  "files.exclude": {
-    "**/*.js": true
-  }
-}
-```
+**Regarding the runtime**
+I love Typescript. Deno loves Typescript. I love Deno.
 
 **On Environment Variables:** In a `.env` file, specify the two:
 
